@@ -27,6 +27,7 @@ class View
       @players.push @player_name
     end
     display_current_players
+    @players
   end
 
   def display_current_players
@@ -38,8 +39,12 @@ class View
     puts "----------------------"
   end
 
-  def render_scores(player)
-
+  def render_scores(player_scores)
+    #object with players scores
+    # What type of object is this  ?????????
+    player_scores.each do |player|
+      puts player
+    end
   end
 
   def render_track
@@ -61,7 +66,7 @@ class View
 end
 
 #Driver Test Code
-# my_view = View.new
-# my_view
+my_view = View.new
+my_view
 # puts my_view.render_wrong_answer('Driver test')
 # puts "#{my_view.render_wrong_answer('Driver test') == 'Sorry. The answer is Driver test. Try again.'} : Returns wrong answer message"
