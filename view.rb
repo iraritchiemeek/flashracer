@@ -17,8 +17,6 @@ class View
     puts 'Welcome to Flash-Racer. !!!. (v1. Release 1.0.0)'
     puts 'You will answer questions which will make you advance on the track.'
     puts 'The first racer to reach the end of the track wins!.'
-
-    enter_names_render
   end
 
   def enter_names_render
