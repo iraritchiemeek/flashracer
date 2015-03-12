@@ -24,8 +24,11 @@ class View
       @player_name = gets.chomp
       @players.push @player_name
     end
+    display_current_players
+  end
 
-     puts "Current players"
+  def display_current_players
+    puts "Current players"
      puts "----------------------"
     @players.each_index do |index|
       puts "#{index+1}. #{@players[index]}"
@@ -33,7 +36,8 @@ class View
     puts "----------------------"
   end
 
-  def render_scores
+  def render_scores(player)
+
   end
 
   def render_track
@@ -48,11 +52,14 @@ class View
   def render_winner
   end
 
-  def render_wrong_answer
+  def render_wrong_answer(answer)
+    puts "Sorry. The answer is #{answer}."
   end
 
 end
 
 #Driver Test Code
-my_view = View.new
-my_view
+# my_view = View.new
+# my_view
+# puts my_view.render_wrong_answer('Driver test')
+# puts "#{my_view.render_wrong_answer('Driver test') == 'Sorry. The answer is Driver test. Try again.'} : Returns wrong answer message"
