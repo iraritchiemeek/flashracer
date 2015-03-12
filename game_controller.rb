@@ -1,6 +1,7 @@
 require_relative 'view'
+require_relative 'model'
 class GameController
-
+attr_reader :view, :name
   def initialize(game_model, game_view)
     @game = game_model
     @view = game_view
@@ -8,13 +9,22 @@ class GameController
 
   def start
 
-    # initialize game
+    view.initialize_game_render
     # get user input for the player 1
     # get user input for the player 2
+    player_names = view.enter_names_render
+    model.add_player_names(player_names)
     # render name of players
+    view.render_player_names(player_names)
     # render score of players
+    # ask model for the players score
+    view.render_scores#(scores)
     # say which player is playing
+      # ask model players array
+      # ask view to print the of the player! (players[0].name)
     # print question
+      #ask Flashcards for a deck
+      ask view to dislay question
     # get user input for answer
     # checking if answer is right
       # if right display "RIGHT" and score and racer moves
@@ -27,7 +37,7 @@ class GameController
 end
 
 # Create the model
-my_game = ""
+my_game = FlashModel.new
 # Create the view
 my_view = View.new
 
