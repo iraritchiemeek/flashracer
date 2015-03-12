@@ -34,8 +34,8 @@ class View
   end
 
   def display_current_players
-    currentplayersheading = "Current players"
-    puts currentplayersheading
+    current_players_heading = "Current players"
+    puts current_players_heading
     puts "----------------------"
     @players.each_index do |index|
       puts "#{index+1}. #{@players[index]}"
@@ -74,8 +74,8 @@ class View
 end
 
 #Driver Test Code
-my_view = View.new
-my_view
+# my_view = View.new
+# my_view
 # puts my_view.render_wrong_answer('Driver test')
 # puts "#{my_view.render_wrong_answer('Driver test') == 'Sorry. The answer is Driver test. Try again.'} : Returns wrong answer message"
 
@@ -85,10 +85,10 @@ my_view
 # names.push 'Geordie'
 # my_view.render_player_names(names)
 
-my_view.render_question('Question is ....')
-my_view.render_answer('Answer is ...')
-puts "#{my_view.render_winner('Joe')}"
-puts "#{my_view.render_winner("Joe") == 'Congratulations Joe, you have WON!!!'} : Returns correct winner name"
+# my_view.render_question('Question is ....')
+# my_view.render_answer('Answer is ...')
+# puts "#{my_view.render_winner('Joe')}"
+# puts "#{my_view.render_winner("Joe") == 'Congratulations Joe, you have WON!!!'} : Returns correct winner name"
 
 
 
