@@ -5,7 +5,6 @@ class View
   def initialize
     @player_name = ''
     @players =[]
-    initialize_game_render
   end
 
   def render_player_names(players)
