@@ -6,7 +6,10 @@ class View
     initialize_game_render
   end
 
-  def render_player_names
+  def render_player_names(players)
+    players.each_index do |index|
+      puts "#{index+1}. #{players[index]}"
+    end
   end
 
   def initialize_game_render
@@ -38,8 +41,6 @@ class View
   end
 
   def render_scores(player_scores)
-    #object with players scores
-    # What type of object is this  ?????????
     player_scores.each do |player|
       puts player
     end
@@ -48,13 +49,15 @@ class View
   def render_track
   end
 
-  def render_question
+  def render_question(question)
+
   end
 
-  def render_answer
+  def render_answer(answer)
+
   end
 
-  def render_winner
+  def render_winner(winner)
   end
 
   def render_wrong_answer(answer)
@@ -68,3 +71,9 @@ my_view = View.new
 my_view
 # puts my_view.render_wrong_answer('Driver test')
 # puts "#{my_view.render_wrong_answer('Driver test') == 'Sorry. The answer is Driver test. Try again.'} : Returns wrong answer message"
+
+names = []
+names.push 'John'
+names <<'Raquel'
+names.push 'Geordie'
+my_view.render_player_names(names)
