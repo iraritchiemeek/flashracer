@@ -38,7 +38,8 @@ class View
     puts "----------------------"
   end
 
-  def render_scores
+  def render_scores(player)
+
   end
 
   def render_track
@@ -54,7 +55,7 @@ class View
   end
 
   def render_wrong_answer(answer)
-    puts "Sorry. The answer is #{answer}. Try again."
+    puts "Sorry. The answer is #{answer}."
   end
 
 end
