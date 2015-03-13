@@ -1,7 +1,7 @@
 require_relative 'view'
 require_relative 'model'
 class GameController
-attr_reader :view, :model
+attr_reader :view, :game
   def initialize(game_model, game_view)
     @game = game_model
     @view = game_view
@@ -11,25 +11,28 @@ attr_reader :view, :model
 
     view.initialize_game_render
     player_names = view.enter_names_render
-    model.add_player_names(player_names)
-    # render name of players
-    players = model.players
+    game.add_player_names(player_names)
+
+    players = game.players
     view.render_player_names(player_names)
-    # view.render_score(model.get_player(0))
+      i = 0
+      until game.game_finished?
+        index = i % 2
+        process_card(index)
+        i += 1
+      end
+
+    # view.render_track("Need arg")
+    view.render_winner(model.winner)
+
+  end
+
+  #LOGIC
+    # render name of players
+   # view.render_score(game.get_player(0))
     # say which player is playing
     # while winner is nil?
-          view.render_track
-          card = model.get_current_card
-          view.render_question(card.question)
-          input = view.get_answer
-          if card.compare(input)
-            view.render_correct_answer
-            model.update_score(index)
-          else
-            view.render_wrong_answer(card.answer)
-          end
-
-      # ask model players array
+      # ask game players array
       # ask view to print the of the player! (players[0].name)
     # print question
       #ask Flashcards for a deck
@@ -40,12 +43,24 @@ attr_reader :view, :model
       # if wrong display "WRONG" and display right answer
     # Switch player
     # Repeat from 16 to 22 until one of the racer reaches the end of the line or the no more questions left
-
+  def process_card(index)
+    # view.render_track("arg")
+    card = game.get_current_card
+    view.render_question(card.question)
+    input = view.get_answer
+    if card.compare(input)
+      view.render_correct_answer
+      game.update_score(index)
+    else
+      view.render_wrong_answer(card.answer)
+    end
   end
+
+
 
 end
 
-# Create the model
+# Create the game
 my_game = FlashModel.new
 # Create the view
 my_view = View.new
