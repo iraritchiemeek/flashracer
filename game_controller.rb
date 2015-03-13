@@ -18,12 +18,12 @@ attr_reader :view, :game
       i = 0
       until game.game_finished?
         index = i % 2
-        process_card(index)
+        process_card(index, players)
         i += 1
       end
 
     # view.render_track("Need arg")
-    view.render_winner(model.winner)
+    view.render_winner(game.winner)
 
   end
 
@@ -43,8 +43,9 @@ attr_reader :view, :game
       # if wrong display "WRONG" and display right answer
     # Switch player
     # Repeat from 16 to 22 until one of the racer reaches the end of the line or the no more questions left
-  def process_card(index)
+  def process_card(index, players)
     # view.render_track("arg")
+    view.display_player(players[index].player_name)
     card = game.get_current_card
     view.render_question(card.question)
     input = view.get_answer
@@ -54,6 +55,7 @@ attr_reader :view, :game
     else
       view.render_wrong_answer(card.answer)
     end
+    view.render_score(players[index].player_score)
   end
 
 
