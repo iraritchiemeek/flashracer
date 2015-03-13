@@ -45,6 +45,7 @@ attr_reader :view, :game
     # Repeat from 16 to 22 until one of the racer reaches the end of the line or the no more questions left
   def process_card(index, players)
     # view.render_track("arg")
+    view.render_track(game.racer.board)
     view.display_player(players[index].player_name)
     card = game.get_current_card
     view.render_question(card.question)
