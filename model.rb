@@ -94,7 +94,7 @@ class Racer
 
   attr_reader :players, :winner, :board,:length
 
-  def initialize(players, length = 2)
+  def initialize(players, length = 10)
     @players = players
     @board = []
     @length = length
@@ -104,7 +104,7 @@ class Racer
   def create_board
     @players.each_with_index do |player, index| # takes players and
       @board[index] = Array.new(@length -1, " ")
-      @board[index].unshift(player)
+      @board[index][0] = 'X'
     end
   end
 
@@ -113,9 +113,11 @@ end
 # test = FlashModel.new
 # # test.file_parsing
 # # p test.get_current_card
+require_relative 'view'
+view = View.new
+racer = Racer.new(["alex", "geordi"])
 
-# racer = Racer.new
-# p racer.create_board
+view.render_track(racer.create_board)
 
 
 
