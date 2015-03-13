@@ -91,7 +91,7 @@ end
 
 class Racer
 
-  attr_reader :players. :winner
+  attr_reader :players. :winner, :board
 
   def inititalize(players, length = 10)
     @players = players
