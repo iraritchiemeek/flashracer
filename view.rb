@@ -45,12 +45,14 @@ class View
   end
 
   def render_score(player_score)
+        clear_screen!
+    move_to_home!
+
       puts "Your score is #{player_score}"
   end
 
   def render_track(track)
     #render the track here...
-    move_to_home!
     puts track.map {|row| row.join('|')}
   end
 
