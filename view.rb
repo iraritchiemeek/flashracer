@@ -68,6 +68,16 @@ class View
     puts "Sorry. The answer is #{answer}."
   end
 
+  def render_correct_answer
+    puts 'Correct'
+  end
+
+  def get_answer
+    puts 'Enter your answer'
+    answer = gets.chomp
+    answer
+  end
+
 end
 
 #Driver Test Code
