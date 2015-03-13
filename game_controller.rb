@@ -14,7 +14,6 @@ attr_reader :view, :game
     game.add_player_names(player_names)
 
     players = game.players
-    view.render_player_names(player_names)
       i = 0
       until game.game_finished?
         index = i % 2
@@ -64,10 +63,14 @@ attr_reader :view, :game
 end
 
 # Create the game
+my_art = ArtParsing.new
+my_art.intro
 my_game = FlashModel.new
 # Create the view
 my_view = View.new
 
 my_controller  = GameController.new(my_game, my_view)
+
+
 
 my_controller.start
