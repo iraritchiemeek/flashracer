@@ -50,6 +50,7 @@ class View
 
   def render_track(track)
     #render the track here...
+    clear_screen!
     move_to_home!
     puts track.map {|row| row.join('|')}
   end

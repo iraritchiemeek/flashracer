@@ -45,7 +45,7 @@ class FlashModel
    2.times {@players << Player.new} # two time smake a new player and push them into the empty array
    file_parsing # call the file parsing method
    @finished = false
-   @racer = Racer.new(players)
+   @racer = Racer.new(@players)
   end
 
   def file_parsing
@@ -67,7 +67,8 @@ class FlashModel
 
   def update_score(player_index)
     @players[player_index].player_score += 1 #will take the players array, pass it a player index and increment the score by +=1 each correct answer they get
-    if @players[player_index].player_score == 10
+    p @racer.length
+    if @players[player_index].player_score == @racer.length
        set_winner(player_index)
        @finished = true
     end
@@ -91,9 +92,9 @@ end
 
 class Racer
 
-  attr_reader :players, :winner
+  attr_reader :players, :winner, :board,:length
 
-  def inititalize(players, length = 10)
+  def initialize(players, length = 2)
     @players = players
     @board = []
     @length = length
@@ -113,8 +114,8 @@ end
 # # test.file_parsing
 # # p test.get_current_card
 
-racer = Racer.new
-p racer.create_board
+# racer = Racer.new
+# p racer.create_board
 
 
 
