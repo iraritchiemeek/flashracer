@@ -11,15 +11,24 @@ attr_reader :view, :model
 
     view.initialize_game_render
     player_names = view.enter_names_render
-    # model.add_player_names(player_names)
-
+    model.add_player_names(player_names)
     # render name of players
+    players = model.players
     view.render_player_names(player_names)
-
-    # render score of players
-    # ask model for the players score
     # view.render_score(model.get_player(0))
     # say which player is playing
+    # while winner is nil?
+          view.render_track
+          card = model.get_current_card
+          view.render_question(card.question)
+          input = view.get_answer
+          if card.compare(input)
+            view.render_correct_answer
+            model.update_score(index)
+          else
+            view.render_wrong_answer(card.answer)
+          end
+
       # ask model players array
       # ask view to print the of the player! (players[0].name)
     # print question
