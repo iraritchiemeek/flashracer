@@ -58,7 +58,7 @@ class FlashModel
   end
 
   def get_current_card
-    @flashcards.sample # take the flashcards array and sample a card from it
+    @flashcards.shuffle.shift# take the flashcards array and sample a card from it
   end
 
   def display_score(player)
@@ -94,7 +94,7 @@ class Racer
 
   attr_reader :players, :winner, :board,:length
 
-  def initialize(players, length = 10)
+  def initialize(players, length = 4)
     @players = players
     @board = []
     @length = length
@@ -103,22 +103,18 @@ class Racer
 
   def create_board
     @players.each_with_index do |player, index| # takes players and
-      @board[index] = Array.new(@length -1, " ")
+      @board[index] = Array.new(@length, " ")
       @board[index][0] = 'X'
     end
   end
 
+  def advance_player(player_index)
+    previous_index = @board[player_index].index("X")
+    @board[player_index][previous_index] = " "
+    @board[player_index][previous_index + 1 ] = "X"
+  end
+
 end
-
-# test = FlashModel.new
-# # test.file_parsing
-# # p test.get_current_card
-require_relative 'view'
-view = View.new
-racer = Racer.new(["alex", "geordi"])
-
-view.render_track(racer.create_board)
-
 
 
 

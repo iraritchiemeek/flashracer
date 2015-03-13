@@ -8,7 +8,7 @@ attr_reader :view, :game
   end
 
   def start
-
+    game.racer.create_board
     view.initialize_game_render
     player_names = view.enter_names_render
     game.add_player_names(player_names)
@@ -22,7 +22,6 @@ attr_reader :view, :game
         i += 1
       end
 
-    # view.render_track("Need arg")
     view.render_winner(game.winner.player_name)
 
   end
@@ -44,8 +43,8 @@ attr_reader :view, :game
     # Switch player
     # Repeat from 16 to 22 until one of the racer reaches the end of the line or the no more questions left
   def process_card(index, players)
-    # view.render_track("arg")
-    # view.render_track(game.racer.board)
+    view.render_track(game.racer.board)
+
     view.display_player(players[index].player_name)
     card = game.get_current_card
     view.render_question(card.question)
@@ -53,6 +52,7 @@ attr_reader :view, :game
     if card.compare(input)
       view.render_correct_answer
       game.update_score(index)
+      game.racer.advance_player(index)
     else
       view.render_wrong_answer(card.answer)
     end
