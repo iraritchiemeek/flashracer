@@ -1,4 +1,4 @@
-
+require 'racer_utils'
 
 class View
   attr_reader :players, :player_name
@@ -41,7 +41,7 @@ class View
   end
 
   def display_player(player)
-    puts player
+    puts "#{player}"
   end
 
   def render_score(player_score)
@@ -50,6 +50,8 @@ class View
 
   def render_track(track)
     #render the track here...
+    move_to_home!
+    puts track.map {|row| row.join('|')}
   end
 
   def render_question(question)
