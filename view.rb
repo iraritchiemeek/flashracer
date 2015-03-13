@@ -48,6 +48,8 @@ class View
 
   def render_track(track)
     #render the track here...
+    #move_to_home! #uses racer_utils to move the cursor to the top left of the screen
+    #puts @track.map {|row| row.join("|")}
   end
 
   def render_question(question)
