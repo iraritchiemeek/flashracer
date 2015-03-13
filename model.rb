@@ -116,5 +116,40 @@ class Racer
 
 end
 
+class ArtParsing
+  attr_reader :art
+
+  def initialize
+    @art = File.readlines('art.txt')
+  end
+
+  def print_logo(sleep_value)
+    @art.each do |line|
+      puts line
+      sleep(sleep_value)
+    end
+  end
+
+    def intro
+    sleep_value=0.5
+    puts
+    puts "Loading..."
+    2.times {sleep(sleep_value)}
+    print_logo sleep_value
+    puts "100% Loaded."
+    sleep(sleep_value)
+    puts
+    puts "Created by Racquet, French Fry, Pete Rabbit, Johnny-Boy, G-Dawg and IraRitchieRich"
+    puts
+    puts "Open Sourced under MIT license - Dev Academy 2015"
+    puts
+  end
+
+end
+
+
+
+
+
 
 
