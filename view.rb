@@ -1,4 +1,4 @@
-require 'racer_utils'
+require_relative 'racer_utils'
 
 class View
   attr_reader :players, :player_name
