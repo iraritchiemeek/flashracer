@@ -1,4 +1,4 @@
-require 'racer_utils'
+require_relative 'racer_utils'
 
 class View
   attr_reader :players, :player_name
@@ -99,5 +99,5 @@ end
 # puts "#{my_view.render_winner('Joe')}"
 # puts "#{my_view.render_winner("Joe") == 'Congratulations Joe, you have WON!!!'} : Returns correct winner name"
 
-
+#test push
 
