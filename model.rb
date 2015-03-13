@@ -41,11 +41,11 @@ class FlashModel
   attr_reader :players, :winner, :racer
 
   def initialize
-    @racer = Racer.new
    @players = [] # make an empty players array which both player will be pushed into
    2.times {@players << Player.new} # two time smake a new player and push them into the empty array
    file_parsing # call the file parsing method
    @finished = false
+   @racer = Racer.new(players)
   end
 
   def file_parsing
