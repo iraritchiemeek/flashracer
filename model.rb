@@ -78,6 +78,11 @@ class FlashModel
     @finished
   end
 
+  def add_player_names(array)
+     @players[0].player_name = array.first
+     @players[1].player_name = array.last
+  end
+
 end
 ##############################################################
 
